@@ -3,20 +3,66 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "天气预报"
+				"navigationBarTitleText": "天气预报",
+				"enablePullDownRefresh": true,
+				"h5": {
+					"titleNView": {
+						"buttons": [{
+							"float": "left",
+							"text": "＋"
+						},{
+							"float": "right",
+							"type": "menu"
+						}]
+					}
+				}
 			}
 		}
-	    ,{
-            "path" : "pages/setting/setting",
-            "style" : {
-				"navigationBarTitleText": "设置"
-			}
-        }
         ,{
             "path" : "pages/cityList/cityList",
             "style" : {
-				"navigationBarTitleText": "选择城市"
+				"navigationBarTitleText": "添加城市",
+				"h5": {
+					"titleNView": {
+						"buttons": [{
+							"float": "right",
+							"type": "home"
+						}]
+					}
+				}
 			}
+        }
+	    ,{
+            "path" : "pages/setting/setting",
+            "style" : {
+				"navigationBarTitleText": "设置",
+				"h5": {
+					"titleNView": {
+						"buttons": [{
+							"float": "right",
+							"type": "home"
+						}]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/setting-sort/setting-sort",
+            "style" : {
+				"navigationBarTitleText": "城市排序",
+				"h5": {
+					"titleNView": {
+						"buttons": [{
+							"float": "right",
+							"type": "home"
+						}]
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/setting-date/setting-date",
+            "style" : {}
         }
     ],
 	"globalStyle": {

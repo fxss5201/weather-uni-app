@@ -149,6 +149,22 @@
 				console.log(e);
 			}
 		},
+		onPullDownRefresh() {
+			console.log('onPullDownRefresh');
+			this.getWeather('base', 'closePullDownRefresh');
+			this.getWeather('all', 'closePullDownRefresh');
+		},
+		onNavigationBarButtonTap(obj){
+			if(obj.index === 0){
+				uni.switchTab({
+					url: '/pages/cityList/cityList'
+				});
+			}else{
+				uni.switchTab({
+					url: '/pages/setting/setting'
+				});
+			}
+		},
 		methods: {
 			getLocation() {
 				this.loading = true;
@@ -183,12 +199,6 @@
 								});
 							}
 						}
-						// uni.showModal({
-						// 	title: '提示',
-						// 	content: '定位失败，请手动选择城市',
-						// 	showCancel: false
-						// });
-						console.log(this.cityInfo);
 					},
 					fail: (err) => {
 						console.log('request fail', err);
@@ -203,7 +213,7 @@
 					}
 				});
 			},
-			getWeather(extensions) {
+			getWeather(extensions, close) {
 				this.loading = true;
 				uni.showLoading({
 					title: '获取天气信息...'
@@ -217,7 +227,6 @@
 						extensions
 					},
 					success: (res) => {
-						console.log(res)
 						if(res.data.status == 1){
 							if(extensions === 'base'){
 								this.weatherBaseInfo = res.data.lives[0];
@@ -243,11 +252,13 @@
 					complete: () => {
 						this.loading = false;
 						uni.hideLoading();
+						if(close === 'closePullDownRefresh'){
+							uni.stopPullDownRefresh();
+						}
 					}
 				});
 			},
 			changeCity(index){
-				console.log(index)
 				this.current_index = index;
 				this.cityInfo = this.storage_cityList[index];
 				uni.setNavigationBarTitle({
@@ -260,7 +271,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.content {
 		color: $uni-text-color;
 		font-size: $uni-font-size-base;

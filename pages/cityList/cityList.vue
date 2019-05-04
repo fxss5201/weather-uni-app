@@ -27,7 +27,7 @@
 			return {
 				cityList: [],
 				loading: false,
-				value: [0, 0, 0],
+				value: [10, 0, 0],
 				storage_cityList: [],
 				indicatorStyle: `height: ${Math.round(uni.getSystemInfoSync().screenWidth/(750/100))}px;`
 			}
@@ -82,6 +82,11 @@
 				console.log(e);
 			}
 		},
+		onNavigationBarButtonTap(obj){
+			uni.switchTab({
+				url: '/pages/index/index'
+			});
+		},
 		methods: {
 			getCityList() {
 				this.loading = true;
@@ -132,7 +137,6 @@
 				}else{
 					this.value = [val[0], 0, 0];
 				}
-				console.log(this.value)
 			},
 			addCity(){
 				let selectAdcode = this.selectAdcode;
@@ -163,7 +167,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .content {
 	color: $uni-text-color;
 	font-size: $uni-font-size-base;
