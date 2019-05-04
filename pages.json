@@ -1,0 +1,44 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "天气预报"
+			}
+		}
+	    ,{
+            "path" : "pages/setting/setting",
+            "style" : {
+				"navigationBarTitleText": "设置"
+			}
+        }
+        ,{
+            "path" : "pages/cityList/cityList",
+            "style" : {
+				"navigationBarTitleText": "选择城市"
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "天气预报",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#F8F8F8",
+		"list": [{
+				"pagePath": "pages/cityList/cityList",
+				"text": "添加城市"
+			},{
+				"pagePath": "pages/index/index",
+				"text": "当前城市"
+			},{
+				"pagePath": "pages/setting/setting",
+				"text": "设置"
+			}]
+	}
+}
